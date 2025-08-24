@@ -39,11 +39,11 @@ The project is organized as follows:
 
 1.  Clone the repository:
     ```bash
-    git clone <repository-url>
+    git clone [<repository-url>](https://github.com/VisualBoy/tinycam-client-web/edit/dev)
     ```
 2.  Navigate to the project directory:
     ```bash
-    cd nextjs-client
+    cd tinycam-client-web
     ```
 3.  Install the dependencies:
     ```bash
