@@ -1,28 +1,36 @@
-# tinyCam app web client written in Angular2
-https://tinycammonitor.com
-More info is <a href="https://www.reddit.com/r/tinycam/comments/iqnov1/tinycam_150_will_have_completely_redesigned_web_ui/">here</a>.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-tinyCam web server main features:
-* **Live view up to 4 cameras** at the same time.
-* **PTZ and audio support** from live view (admin only).
-* **Timeline support** (multiple timelines as well) w/ slow/fast playback.
-* **Autoplay event on hover**.
-* **Sort events by date and type** (person, vehicle, etc.).
-* **Delete and pin events** (admin only).
-* Support for **playback cloud events** in web browser.
-* **Admin console** (admin only).
+## Getting Started
 
-PTZ keyboard controls:
-* Keys W/A/S/D - pan-tilt
-* Keys +/- - optical zoom in/out
-* Keys F/N - focus far/near
-* Keys O/C - iris open/close
-* Keys 1..9 - presets
+First, run the development server:
 
-## See also:
-- [Web timeline UI widget written in JavaScript](https://github.com/alexeyvasilyev/timeline-ui-web)
-- [tinyCam web server API](https://github.com/alexeyvasilyev/tinycam-api)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Hacks:
-* Adding `remote=yes` to login screen will show remote server input field, e.g `http://192.168.0.3:8083/login?remote=yes`
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
