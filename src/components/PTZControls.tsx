@@ -14,13 +14,12 @@ import { useTinyCamAPI } from '@/hooks/useTinyCamAPI';
 
 const PTZControls = () => {
   const { server, login, selectedCamera } = useAppContext();
+  const { sendPtzCommand } = useTinyCamAPI(server, login);
 
   if (!server || !login) {
     // This should not happen if the component is used correctly, but it's a good safeguard.
     return null;
   }
-
-  const { sendPtzCommand } = useTinyCamAPI(server, login);
 
   const handlePtzAction = async (action: string) => {
     if (!selectedCamera) {
