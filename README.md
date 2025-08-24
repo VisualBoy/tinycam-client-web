@@ -39,7 +39,7 @@ The project is organized as follows:
 
 1.  Clone the repository:
     ```bash
-    git clone [<repository-url>](https://github.com/VisualBoy/tinycam-client-web/edit/dev)
+    git clone https://github.com/VisualBoy/tinycam-client-web/edit/dev
     ```
 2.  Navigate to the project directory:
     ```bash
