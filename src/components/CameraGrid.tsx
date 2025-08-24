@@ -4,9 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { useTinyCamAPI } from '@/hooks/useTinyCamAPI';
 import { CameraSettings } from '@/types/tinycam';
 import { useAppContext } from '@/context/AppContext';
-import CameraView from './CameraView';
 
-const CameraGrid = () => {
+interface CameraGridProps {
+  onCameraSelect: (cameraId: number) => void;
+}
+
+const CameraGrid: React.FC<CameraGridProps> = ({ onCameraSelect }) => {
   const { server, login, cameras, setCameras, selectedCamera, selectCamera } = useAppContext();
 
   const api = useTinyCamAPI(server!, login!);
@@ -54,6 +57,11 @@ const CameraGrid = () => {
     return <div className="text-red-500 mb-4">{error}</div>;
   }
 
+  const getStreamUrl = (cameraId: number) => {
+    if (!server || !login) return '';
+    return `${server.url}/axis-cgi/mjpg/video.cgi?cameraId=${cameraId}&token=${login.token}`;
+  };
+
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">Live View</h2>
@@ -62,10 +70,17 @@ const CameraGrid = () => {
           cameras.map((camera) => (
             <div
               key={camera.id}
-              onClick={() => selectCamera(camera)}
+              onClick={() => onCameraSelect(camera.id)}
               className={`cursor-pointer rounded-lg overflow-hidden border-4 ${selectedCamera?.id === camera.id ? 'border-blue-500' : 'border-transparent'}`}
             >
-              <CameraView camera={camera} serverUrl={server.url} token={login.token} />
+              <img
+                src={getStreamUrl(camera.id)}
+                alt={`Camera ${camera.name}`}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-2 w-full">
+                {camera.name}
+              </div>
             </div>
           ))
         ) : (

@@ -6,9 +6,9 @@ import {
   ArrowDownIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
-  ZoomInIcon,
-  ZoomOutIcon,
-} from '@heroicons/react/solid';
+  MagnifyingGlassPlusIcon,
+  MagnifyingGlassMinusIcon,
+} from '@heroicons/react/24/solid';
 import { useAppContext } from '@/context/AppContext';
 import { useTinyCamAPI } from '@/hooks/useTinyCamAPI';
 
@@ -93,10 +93,10 @@ const PTZControls = () => {
       </div>
       <div className="flex justify-center gap-4 mt-4">
         <button onClick={() => handlePtzAction('zoom-in')} className={buttonClasses} disabled={isDisabled}>
-          <ZoomInIcon className="h-6 w-6" />
+          <MagnifyingGlassPlusIcon className="h-6 w-6" />
         </button>
         <button onClick={() => handlePtzAction('zoom-out')} className={buttonClasses} disabled={isDisabled}>
-          <ZoomOutIcon className="h-6 w-6" />
+          <MagnifyingGlassMinusIcon className="h-6 w-6" />
         </button>
       </div>
     </div>

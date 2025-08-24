@@ -10,8 +10,11 @@ import {
 
 const API_TIMEOUT = 10000;
 
-export const useTinyCamAPI = (server: Server, login: Login) => {
+export const useTinyCamAPI = (server: Server | null, login: Login | null) => {
   const getRequest = useCallback(async <T>(request: string): Promise<T> => {
+    if (!server || !login) {
+      throw new Error('Server and login information must be provided.');
+    }
     const char = request.includes('?') ? '&' : '?';
     const url = `${server.url}${request}${char}token=${login.token}`;
 
@@ -64,6 +67,9 @@ export const useTinyCamAPI = (server: Server, login: Login) => {
   }, [getRequest]);
 
   const sendPtzCommand = useCallback(async (cameraId: number, params: Record<string, string>): Promise<void> => {
+    if (!server || !login) {
+      throw new Error('Server and login information must be provided.');
+    }
     const searchParams = new URLSearchParams(params);
     // PTZ commands don't return a JSON body, so we don't use the standard getRequest
     const url = `${server.url}/axis-cgi/com/ptz.cgi?camera=${cameraId}&token=${login.token}&${searchParams.toString()}`;

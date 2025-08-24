@@ -81,3 +81,8 @@ export interface Server {
 export interface Login {
   token: string;
 }
+
+export interface LoginResponse {
+  token: string;
+  access: number;
+}
